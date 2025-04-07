@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FAQ – Débogueur JS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Déboguer JavaScript avec VS Code</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="scripts.html">Scripts</a></li>
+            <li><a href="debugger-vscode.html">Fonctionnalités</a></li>
+            <li><a href="guide-setup.html">Configuration</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="astuces.html">Astuces</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+  <main>
+    <section>
+      <h2>Pourquoi mon breakpoint ne fonctionne pas ?</h2>
+      <p>Assurez-vous que le code est bien chargé dans la page et que la source correspondante est visible dans les DevTools ou VS Code.</p>
+    </section>
+    <section>
+      <h2>Je ne vois pas mes variables dans Watch</h2>
+      <p>Vérifiez que vous êtes à un moment de l'exécution où les variables sont bien accessibles (dans le bon scope).</p>
+    </section>
+    <section>
+      <h2>Step Into ne rentre pas dans la fonction</h2>
+      <p>Si la fonction est native (comme console.log), VS Code ne peut pas y entrer. Essayez sur une fonction utilisateur.</p>
+    </section>
+    <section>
+      <h2>Comment lancer un débogage web dans VS Code ?</h2>
+      <p>Utilisez une configuration de type "pwa-chrome" et ouvrez la bonne URL locale.</p>
+    </section>
+  </main>
+</body>
+</html>

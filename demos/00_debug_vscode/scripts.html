@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Scripts de démonstration – Déboguer JS avec VS Code</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Déboguer JavaScript avec VS Code</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="scripts.html">Scripts</a></li>
+        <li><a href="debugger-vscode.html">Fonctionnalités</a></li>
+        <li><a href="guide-setup.html">Configuration</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="astuces.html">Astuces</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <main>
+    <aside style="background:#fff3cd; padding:1em; border-left:5px solid #ffc107; margin-bottom:2rem;">
+      <strong>💡 Instructions :</strong> Ouvre le projet dans VS Code, place des breakpoints dans <code>main.js</code> (dans la fonction concernée), puis lance le debug et clique sur "Déclencher" pour exécuter le script.
+    </aside>
+
+    <section>
+      <h2>Scripts connectés à main.js</h2>
+      <p>Chaque démonstration appelle une fonction définie dans <code>main.js</code>. À toi de placer les breakpoints, d'observer la pile d'appels, les variables, ou les comportements asynchrones.</p>
+    </section>
+
+    <!-- Démo 1 : Breakpoints simples -->
+    <section>
+      <h3>1. Breakpoints simples</h3>
+      <p>Place un breakpoint dans la fonction <code>demoBreakpoints()</code> sur <code>somme = a + b</code>.</p>
+      <pre><code>
+function demoBreakpoints() {
+  const a = 2;
+  const b = 3;
+  const somme = a + b; // ← Breakpoint ici
+  console.log("Résultat :", somme);
+}
+      </code></pre>
+      <button onclick="demoBreakpoints()">▶️ Déclencher</button>
+    </section>
+
+    <!-- Démo 2 : Step Over / Into / Out -->
+    <section>
+      <h3>2. Contrôle d’exécution (Step Into / Over / Out)</h3>
+      <p>Utilise “Step Into” pour entrer dans <code>soustraction()</code> depuis <code>demoStep()</code>.</p>
+      <pre><code>
+function demoStep() {
+  function soustraction(x, y) {
+    return x - y;
+  }
+
+  const result = soustraction(10, 4); // ← Step Into ici
+  console.log("Résultat :", result);
+}
+      </code></pre>
+      <button onclick="demoStep()">▶️ Déclencher</button>
+    </section>
+
+    <!-- Démo 3 : Watch -->
+    <section>
+      <h3>3. Watch & Variables</h3>
+      <p>Observe les variables <code>i</code> et <code>total</code> dans le "Watch".</p>
+      <pre><code>
+function demoWatch() {
+  let x = 5;
+  let total = 0;
+
+  for (let i = 0; i < x; i++) {
+    total += i; // ← Surveille ici
+  }
+
+  console.log("Total :", total);
+}
+      </code></pre>
+      <button onclick="demoWatch()">▶️ Déclencher</button>
+    </section>
+
+    <!-- Démo 4 : Call Stack -->
+    <section>
+      <h3>4. Call Stack</h3>
+      <p>Ajoute un breakpoint dans <code>niveau3()</code> pour voir la pile d'appels.</p>
+      <pre><code>
+function demoCallStack() {
+  function niveau1() {
+    niveau2();
+  }
+
+  function niveau2() {
+    niveau3();
+  }
+
+  function niveau3() {
+    console.log("Dernier niveau"); // ← Breakpoint ici
+  }
+
+  niveau1();
+}
+      </code></pre>
+      <button onclick="demoCallStack()">▶️ Déclencher</button>
+    </section>
+
+    <!-- Démo 5 : Breakpoints conditionnels -->
+    <section>
+      <h3>5. Breakpoints conditionnels</h3>
+      <p>Ajoute un breakpoint conditionnel dans <code>demoConditionalBreakpoint()</code> : <code>i === 3</code>.</p>
+      <pre><code>
+function demoConditionalBreakpoint() {
+  for (let i = 0; i < 5; i++) {
+    console.log("Itération :", i); // ← Condition: i === 3
+  }
+}
+      </code></pre>
+      <button onclick="demoConditionalBreakpoint()">▶️ Déclencher</button>
+    </section>
+
+    <!-- Démo 6 : Asynchrone -->
+    <section>
+      <h3>6. Asynchrone (setTimeout & Promise)</h3>
+      <p>Ajoute des breakpoints dans les callbacks pour suivre l'ordre d'exécution.</p>
+      <pre><code>
+function demoAsync() {
+  setTimeout(() => {
+    console.log("setTimeout exécuté");
+  }, 1000);
+
+  Promise.resolve().then(() => {
+    console.log("Promise résolue");
+  });
+}
+      </code></pre>
+      <button onclick="demoAsync()">▶️ Déclencher</button>
+    </section>
+
+    <!-- Démo 7 : Scope et closure -->
+    <section>
+      <h3>7. Scope et Closure</h3>
+      <p>Observe comment la fonction interne accède à <code>secret</code>.</p>
+      <pre><code>
+function demoClosure() {
+  function externe() {
+    const secret = 42;
+
+    function interne() {
+      console.log("Le secret est :", secret); // ← Observe ici
+    }
+
+    return interne;
+  }
+
+  const fn = externe();
+  fn();
+}
+      </code></pre>
+      <button onclick="demoClosure()">▶️ Déclencher</button>
+    </section>
+
+    <!-- Démo 8 : Modifier une variable dans le debugger -->
+<section>
+  <h3>8. Modifier une variable en temps réel (DOM)</h3>
+  <p>
+    Place un breakpoint sur la ligne <code>message = "Texte original"</code> dans <code>demoLiveEdit()</code>.
+    Ensuite, modifie la valeur de <code>message</code> dans le debugger avant de reprendre l’exécution.
+    Tu verras le texte changer dans le navigateur.
+  </p>
+  <div id="live-edit-result" style="padding: 1em; border: 1px dashed #ccc; margin: 1em 0;">
+    [le texte apparaîtra ici]
+  </div>
+  <pre><code>
+function demoLiveEdit() {
+  let message = "Texte original"; // ← Change cette valeur dans le debugger
+  document.getElementById("live-edit-result").textContent = message;
+}
+  </code></pre>
+  <button onclick="demoLiveEdit()">▶️ Déclencher</button>
+</section>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Site éducatif personnel</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

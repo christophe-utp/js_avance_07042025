@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Déboguer JavaScript avec VS Code</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Déboguer JavaScript avec VS Code</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="scripts.html">Scripts</a></li>
+        <li><a href="debugger-vscode.html">Fonctionnalités</a></li>
+        <li><a href="guide-setup.html">Configuration</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="astuces.html">Astuces</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <main>
+    <section>
+      <h2>Bienvenue !</h2>
+      <p>
+        Ce site a pour but de vous faire découvrir le fonctionnement du débogueur JavaScript intégré à 
+        <strong>Visual Studio Code</strong>.
+      </p>
+      <p>Il vous propose :</p>
+      <ul>
+        <li>Des explications détaillées sur les fonctionnalités du debugger</li>
+        <li>Des scripts JavaScript conçus pour illustrer chaque aspect</li>
+        <li>Des instructions pour les tester dans VS Code</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>À propos du debugger intégré de VS Code</h2>
+      <p>
+        Le débogueur de Visual Studio Code est un outil puissant pour analyser le comportement de vos programmes JavaScript. 
+        Il vous aide à comprendre le déroulement du code, repérer les bugs, et inspecter en temps réel l'état de vos variables.
+      </p>
+      <h3>Fonctionnalités principales :</h3>
+      <ul>
+        <li><strong>Breakpoints</strong> – Arrêter l'exécution à une ligne précise</li>
+        <li><strong>Step Over / Into / Out</strong> – Avancer pas à pas dans le code</li>
+        <li><strong>Watch</strong> – Surveiller l'évolution de variables spécifiques</li>
+        <li><strong>Call Stack</strong> – Comprendre la pile d'appels et le contexte</li>
+        <li><strong>Breakpoints conditionnels</strong> – Cibler des cas précis</li>
+        <li><strong>Débogage asynchrone</strong> – Analyser les callbacks, Promises, etc.</li>
+      </ul>
+      <p>
+        Vous verrez toutes ces fonctionnalités à travers des scripts illustratifs simples à exécuter dans VS Code.
+      </p>
+    </section>
+
+    <section>
+      <h2>Alternatives et autres débogueurs JavaScript</h2>
+      <p>
+        Bien que le débogueur de VS Code soit très populaire, il existe plusieurs autres outils puissants pour déboguer du JavaScript :
+      </p>
+      <ul>
+        <li><strong>🧭 Chrome DevTools</strong> — Intégré à Google Chrome, puissant pour le front-end, avec un debugger complet (Sources tab)</li>
+        <li><strong>🦊 Firefox Debugger</strong> — Intégré à Firefox, propose une bonne interface pour l’inspection JS, avec support des breakpoints, async, etc.</li>
+        <li><strong>🌐 Edge DevTools</strong> — Basé sur Chromium, similaire à Chrome DevTools mais intégré à Edge</li>
+        <li><strong>📦 Node.js Debugger (CLI)</strong> — Pour des débogages simples depuis le terminal avec `node inspect`</li>
+        <li><strong>💡 WebStorm Debugger</strong> — Inclus dans l’IDE JetBrains WebStorm, très complet et intégré</li>
+      </ul>
+      <p>
+        VS Code a l’avantage de combiner les bénéfices de ces outils avec une interface unifiée, personnalisable, et multiplateforme.
+      </p>
+    </section>
+    <section>
+      <h2>Déboguer dans le navigateur avec VS Code</h2>
+      <p>
+        Ce projet s’exécute dans le navigateur. Pour utiliser le débogueur intégré de VS Code, il faut <strong>attacher VS Code à Chrome</strong>.
+      </p>
+    
+      <h3>Étapes à suivre</h3>
+      <ol>
+        <li>Ouvre ce projet dans VS Code</li>
+        <li>Installe l’extension <strong>Debugger for Chrome</strong> si ce n’est pas déjà fait</li>
+        <li>Crée ou modifie le fichier <code>.vscode/launch.json</code> avec la configuration suivante :</li>
+      </ol>
+    
+      <pre><code>{
+      "version": "0.2.0",
+      "configurations": [
+        {
+          "type": "chrome",
+          "request": "launch",
+          "name": "Déboguer dans Chrome",
+          "url": "http://localhost:5500",
+          "webRoot": "${workspaceFolder}"
+        }
+      ]
+    }</code></pre>
+    
+      <p>Remplace <code>url</code> par l’adresse exacte de ton serveur local (ex : Live Server).</p>
+    
+      <h3>Exécution</h3>
+      <ol>
+        <li>Lance le serveur local (via Live Server ou un autre outil)</li>
+        <li>Va dans l’onglet <strong>Run and Debug</strong> dans VS Code</li>
+        <li>Sélectionne “Déboguer dans Chrome” et clique sur ▶️</li>
+        <li>Place tes breakpoints dans <code>main.js</code> et utilise les boutons “Déclencher” dans le navigateur</li>
+      </ol>
+    </section>
+    
+    
+
+    <section>
+        <h3>Liens utiles</h3>
+        <ul>
+          <li><a href="https://code.visualstudio.com/docs/editor/debugging" target="_blank">Guide officiel du débogage dans VS Code</a></li>
+          <li><a href="https://code.visualstudio.com/docs/nodejs/nodejs-debugging" target="_blank">Déboguer du JavaScript (Node.js) dans VS Code</a></li>
+          <li><a href="https://github.com/microsoft/vscode-recipes" target="_blank">Exemples pratiques (VS Code Recipes)</a></li>
+          <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-debug-nightly" target="_blank">Extension JS Debugger (version nightly, Microsoft)</a></li>
+        </ul>
+      </section>
+      
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - Site éducatif personnel</p>
+  </footer>
+</body>
+</html>
