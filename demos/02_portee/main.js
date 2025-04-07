@@ -41,3 +41,4 @@ log("Closure test:");
 log(counter()); // 1
 log(counter()); // 2
 log(counter()); // 3
+

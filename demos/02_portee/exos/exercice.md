@@ -6,7 +6,9 @@ Complète la fonction suivante pour créer un générateur de messages :
 
 ```js
 function createLogger(prefix) {
-  // ...
+  return function(message){
+    return `${prefix} ${message}`
+  }
 }
 
 const logInfo = createLogger("[INFO]");
@@ -18,7 +20,9 @@ Complète la fonction `createMultiplier` pour qu’elle retourne une fonction qu
 
 ```js
 function createMultiplier(n) {
-  // ...
+  return function(x) {
+    return x * n;
+  }
 }
 
 const triple = createMultiplier(3);
