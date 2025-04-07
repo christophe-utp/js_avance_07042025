@@ -22,9 +22,11 @@ const cat = new Animal("Mimi");
 log(cat.speak());
 
 // 3. Object.create
+console.log(Animal.prototype)
 const lion = Object.create(Animal.prototype);
 lion.name = "Simba";
 log(lion.speak());
+console.log(lion)
 
 // 4. this et contexte
 const contextTest = {
