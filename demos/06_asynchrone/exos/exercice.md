@@ -9,3 +9,14 @@ Crée une promesse qui se résout après 2 secondes avec le message `"Fini !"`, 
 
 ## Utiliser async/await
 Crée une fonction `delayedHello()` qui attend 1 seconde puis affiche `"Hello async"`.
+
+## **Exercice : Vérification d’un mot de passe**
+
+Créer une fonction `verifierMotDePasse(motDePasse)` qui retourne une promesse.
+
+- Si le mot de passe fait **au moins 8 caractères**, la promesse est **résolue** avec le message :  
+  `"Mot de passe accepté ✅"`  
+- Sinon, la promesse est **rejetée** avec le message :  
+  `"Mot de passe trop court ❌"`  
+
+Ensuite, **tester la fonction** avec deux exemples : un mot de passe trop court, et un valide.
