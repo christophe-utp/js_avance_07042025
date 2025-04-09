@@ -27,8 +27,23 @@ form.addEventListener("submit", function(event) {
     valid = false;
   }
 
+
+
   if (valid) {
     alert("Formulaire valide ! Données envoyées.");
     form.reset();
   }
+
+
 });
+
+
+const phone = document.getElementById("phone")
+
+phone.addEventListener('input',() => {
+  if(!/^\d{10}$/.test(document.getElementById("phone").value.trim())){
+    document.getElementById("phoneError").textContent = "Numéro invalide !!!"
+  }else{
+    document.getElementById("phoneError").textContent = "Numéro valide "
+  }
+})

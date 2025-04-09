@@ -3,7 +3,7 @@
 Ajoute à ce champ une validation HTML5 pour qu’il soit obligatoire et commence par une majuscule.
 
 ```html
-<input type="text" id="city">
+<input type="text" id="city" required pattern="[A-Z][a-z]+">
 ```
 
 
