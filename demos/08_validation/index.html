@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Validation de formulaire</title>
+  <style>
+    input:invalid {
+      border-color: red;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Formulaire d'inscription</h1>
+
+  <form id="signupForm" novalidate>
+    <label>Nom :
+      <input type="text" id="name" required minlength="3">
+      <div class="error" id="nameError"></div>
+    </label><br><br>
+
+    <label>Email :
+      <input type="email" id="email" required>
+      <div class="error" id="emailError"></div>
+    </label><br><br>
+
+    <label>Mot de passe :
+      <input type="password" id="password" required minlength="6">
+      <div class="error" id="passwordError"></div>
+    </label><br><br>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+ <script src="main.js"></script>
+</body>
+</html>

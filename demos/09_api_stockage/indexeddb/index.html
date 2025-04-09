@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Démo IndexedDB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #f4f4f4;
+            border-radius: 8px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            margin-right: 10px;
+            padding: 0.5rem 1rem;
+        }
+
+        .messages {
+            margin-top: 1rem;
+            background: white;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>📦 Démo IndexedDB : Ajouter un message</h2>
+
+    <input type="text" id="name" placeholder="Ton nom" />
+    <textarea id="message" placeholder="Ton message..."></textarea><br>
+    <button id="addBtn">Ajouter</button>
+    <button id="clearBtn">Tout supprimer</button>
+
+    <div class="messages">
+        <strong>📋 Messages enregistrés :</strong>
+        <ul id="messageList"></ul>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
