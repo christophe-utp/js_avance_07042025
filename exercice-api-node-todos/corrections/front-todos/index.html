@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Gestion de Todos</h1>
+
+    <section id="form-section">
+        <input type="text" id="title" placeholder="Titre">
+        <input type="text" id="content" placeholder="Contenu">
+        <button id="addTodo">Ajouter</button>
+    </section>
+
+    <section id="search-section">
+        <input type="text" id="search" placeholder="Rechercher par titre">
+        <button id="searchTodo">Rechercher</button>
+        <button id="reloadTodos">Recharger tous</button>
+    </section>
+
+    <section id="todos"></section>
+
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <h2>Détail du Todo</h2>
+            <p id="modal-title"></p>
+            <p id="modal-content"></p>
+            <button onclick="closeModal()">Fermer</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
